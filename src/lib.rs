@@ -1,5 +1,8 @@
 // Silence some warnings .
 #![allow(dead_code, unused_mut, unused_variables)]
+pub mod utils;
+
+pub use utils::math::print_distance;
 
 pub fn greet() {
     println!("Hi");
@@ -54,55 +57,5 @@ fn on_off(val: bool) {
     if val {
         println!("Lights are on!");
     }
-}
-
-fn print_distance((x,y): (f32, f32)) {
-    println!(
-        "Distance to the origin is {}",
-        (x + y).sqrt()
-    );
-}
-
-
-pub fn sum() {
-    let mut sum = 0;
-
-    //for loop iterating throught integers 7 to 23
-    for i in 7..=23{
-        sum +=i
-        //adding all the elements in this range
-    }
-
-
-    println!("The sum is {}", sum);
-}
-
-pub fn double() {
-    let mut count = 0;
-    let mut x = 1;
-
-    //while loop
-    while x < 500 {
-        count += 1;
-        x *= 2;
-    } 
-
-    println!("You can double x {} times until x is larger than 500", count);
-}
-
-pub fn count(arg: String) {
-    let mut count = 0;
-
-    //conditional loop
-    loop {
-        count += 1;
-        println!("Executed {} times ", count);
-
-        if count >= 8 {
-            break; 
-        }
-    }
-
-    print!("End of flow"); 
 }
 

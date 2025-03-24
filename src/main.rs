@@ -1,5 +1,9 @@
-use luffy:: {greet, simple_type, sum, double, count};
+mod utils;
+use luffy:: {greet, simple_type};
 
+use utils::math::{sum,double, area_of};
+use utils::flow::count;
+use utils::ownership::ownership;
 
 // Constants are immutable and must have explicit type annotations
 const STARTING_MISSILES: i32 = 8;
@@ -75,10 +79,10 @@ fn main() {
     
 
     {
-    println!("\n--------------Flow control-------------------");
-    let args: Vec<String> = std::env::args().skip(1).collect();
-
-    for arg in args {
+        let args: Vec<String> = std::env::args().skip(1).collect();
+        
+        for arg in args {
+        println!("\n--------------Flow control-------------------");
         if arg == "sum" {
             sum()
         }if arg == "double"{
@@ -91,10 +95,9 @@ fn main() {
     }
 }
 
+
+{
+    ownership()
+}
 }
 
-//Declaration of functions in rust
-fn area_of(x: i32, y: i32) -> i32 {
-    // -> denotes the return type 
-    return x * y;
-}

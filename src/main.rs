@@ -1,4 +1,5 @@
-// Rust Variables and Constants Example
+use luffy:: {greet, simple_type};
+
 
 // Constants are immutable and must have explicit type annotations
 const STARTING_MISSILES: i32 = 8;
@@ -17,7 +18,10 @@ fn main() {
         println!("Firing {} of my {} missiles...", ready, missiles);
         // Cannot mutate immutable variable `missiles`
         // missiles = missiles - ready; // This would cause a compilation error
-        println!("{} missiles left (immutable variable, so no change)", missiles);
+        println!(
+            "{} missiles left (immutable variable, so no change)",
+            missiles
+        );
     }
 
     println!("\n----------------------------------\n");
@@ -28,7 +32,10 @@ fn main() {
         let ready: i32 = 2;
         println!("Firing {} of my {} missiles...", ready, missiles);
         missiles = missiles - ready; // Mutating the value of `missiles`
-        println!("{} missiles left (mutable variable, value updated)", missiles);
+        println!(
+            "{} missiles left (mutable variable, value updated)",
+            missiles
+        );
     }
 
     println!("\n----------------------------------\n");
@@ -39,6 +46,37 @@ fn main() {
         // Binding the variables all at once using pattern matching
         println!("Firing {} of my {} missiles...", ready, missiles);
         missiles -= ready; // Shorter syntax for subtraction
-        println!("{} missiles left (using constants and pattern binding)", missiles);
+        println!(
+            "{} missiles left (using constants and pattern binding)",
+            missiles
+        );
     }
+
+    println!("\n----------------------------------\n");
+    {
+        let width = 4;
+        let height = 7;
+        let _depth = 10;
+        // if this is intentional, prefix it with an underscore: `_depth`
+        //As depth is unused vairable recived a warning of unused vairables.
+
+        let area: i32 = area_of(width, height);
+
+        println!("Area is {}", area)
+    }
+
+    println!("\n----------------------------------\n");
+
+    {
+       greet();
+       simple_type();
+       
+    }
+    
+}
+
+//Declaration of functions in rust
+fn area_of(x: i32, y: i32) -> i32 {
+    // -> denotes the return type 
+    return x * y;
 }

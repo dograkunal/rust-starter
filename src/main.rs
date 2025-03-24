@@ -1,4 +1,4 @@
-use luffy:: {greet, simple_type};
+use luffy:: {greet, simple_type, sum, double, count};
 
 
 // Constants are immutable and must have explicit type annotations
@@ -73,6 +73,24 @@ fn main() {
        
     }
     
+
+    {
+    println!("\n--------------Flow control-------------------");
+    let args: Vec<String> = std::env::args().skip(1).collect();
+
+    for arg in args {
+        if arg == "sum" {
+            sum()
+        }if arg == "double"{
+            double()
+        }else{
+            count(arg)
+        };
+        // pass "sum", "double" and "bananas" to the program by adding your argument
+        // after "cargo run".  For example "cargo run sum"
+    }
+}
+
 }
 
 //Declaration of functions in rust
